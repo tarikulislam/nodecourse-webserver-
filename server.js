@@ -23,12 +23,12 @@ app.use((req, res, next) => {
 });
 
 
-hbs.registerHelper('getCurrentYear', ()=>{
+hbs.registerHelper('getCurrentYear', () => {
     return new Date().getFullYear();
 });
 
 
-app.get('/', (req, res)=> {
+app.get('/', (req, res) => {
    // res.send('<h1>Hello Express!</h1>');
     res.render('home.hbs', {
         pageName: 'Home', 
@@ -36,14 +36,20 @@ app.get('/', (req, res)=> {
     });
 });
 
-app.get('/about', (req, res)=>{
+app.get('/about', (req, res) => {
     res.render('about.hbs', {
         pageName: 'About'
     });
 
 });
 
-app.get('/bad', (req, res)=>{
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageName: 'Projects'
+    });
+});
+
+app.get('/bad', (req, res) => {
     res.send({
         errorMessage: 'Fatal error',
         errorCode: 434
